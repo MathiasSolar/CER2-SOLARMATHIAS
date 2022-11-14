@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title%}{{titulo}}{%endblock%}
+{%block header%}
+
+{%endblock%}
+{%block content%}
+
+
+
+<img src="{% static "./img/pano.jpg" %}"  class="img-fluid" alt="panoramica"> 
+<br><br><br>
+
+
+<h1>Filtracion de Correspondencias con<span class="badge bg-info">CHANGO</span></h1>
+<br>
+
+
+<div class="container">
+        <div>
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <div >
+                        <br>
+                        <h2 >Correspondencias</h2>
+                        <br>
+                        
+                    </div>
+                    <form class="d-flex" role="search" name="search">
+                        <input class="form-control me-5" type="search" placeholder="Filtrar por Número:" name="buscar" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Mostrar</button>
+                    </form>
+                    <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+
+                            <tr>
+                                <th>Nº</th>
+                                <th>Nombre</th>
+                            <th>Numero</th>
+                            <th>Fecha entrega</th>
+                            <th>Estado</th>
+                        </thead>
+                        <tbody>
+                            {% for r in recepciones %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{r.nombre}}</td>
+                                    <td>{{r.numero}}</td>
+                                    <td>{{r.fechaentrega}}</td>
+                                    <td>{{r.estado}}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+<hr>
+        <br>
+    {%endblock%}
